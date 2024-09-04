@@ -1,0 +1,97 @@
+[
+    {
+        "title": "GFE",
+        "links": [
+            {
+                "text": "Home",
+                "url": "https://www.gfe.foundation/"
+            },
+            {
+                "text": "Governance",
+                "url": "https://www.gfe.foundation/governance"
+            },
+            {
+                "text": "Forum",
+                "url": "https://www.gfe.foundation/forum"
+            },
+            {
+                "text": "NFT",
+                "url": "https://www.gfe.foundation/nft"
+            },
+            {
+                "text": "Faucet",
+                "url": "https://www.gfe.foundation/faucet"
+            },
+            {
+                "text": "Guild",
+                "url": "https://www.gfe.foundation/guild"
+            },
+            {
+                "text": "About",
+                "url": "https://www.gfe.foundation/about-us"
+            }
+        ]
+    },
+    {
+        "title": "Developers",
+        "links": [
+            {
+                "text": "Documentation",
+                "url": "https://docs.evmos.org/"
+            },
+            {
+                "text": "Status",
+                "url": "https://evmos.org/"
+            },
+            {
+                "text": "Decentalized Application",
+                "url": "https://store.evmos.org/dapps"
+            },
+            {
+                "text": "Dev blog",
+                "url": "http://blog.evmos.org/"
+            },
+            {
+                "text": "Technical Architecture",
+                "url": "https://docs.evmos.org/protocol"
+            },
+            {
+                "text": "Portfolio",
+                "url": "https://store.evmos.org/portfolio"
+            },
+            {
+                "text": "GitHub",
+                "url": "https://github.com/evmos/evmos"
+            }
+        ]
+    },
+    {
+        "title": "Community",
+        "links": [
+            {
+                "text": "Facebook",
+                "url": "www.facebook.com/gfefoundation"
+            },
+            {
+                "text": "Twitter",
+                "url": "https://twitter.com/gfefoundation"
+            },
+            {
+                "text": "Instagram",
+                "url": "https://www.twitch.tv/gfefoundation"
+            },
+            {
+                "text": "Telegram",
+                "url": "https://t.me/gfefoundation"
+            },
+            {
+                "text": "Discord",
+                "url": "https://discord.gg/JGAusnCvaM"
+            },
+            {
+                "text": "Blog",
+                "url": "https://www.gfe.foundation/blogs-and-news/"
+            }
+        ]
+    }
+]

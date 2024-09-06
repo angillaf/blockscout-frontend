@@ -113,6 +113,7 @@ const Footer = () => {
         mb={{ base: 5, lg: 10 }}
         _empty={{ display: 'none' }}
       >
+
         { !config.UI.indexingAlert.intTxs.isHidden && <IntTxsIndexingStatus/> }
         <NetworkAddToWallet/>
       </Flex>
@@ -122,6 +123,13 @@ const Footer = () => {
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Box gridArea={ gridArea }>
+        <Text mb={ 6 } fontSize="xs">
+          <Link href="https://www.gfe.foundation" fontSize="sm">Green Fungible Energy</Link>
+          - GFE is a trailblazing initiative designed to tokenize green energy.
+          Providing a unique investment opportunity that bridges the gap between
+          environmental impact and economic incentive, while bringing the first
+          global perspective to electrical costs.
+        </Text>
         <Flex columnGap={ 2 } fontSize="xs" lineHeight={ 5 } alignItems="center" color="text">
           <span>Made with</span>
           <Link href="https://www.blockscout.com" isExternal display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
@@ -132,24 +140,9 @@ const Footer = () => {
             />
           </Link>
         </Flex>
-        <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+        <Text fontSize="xs" lineHeight={ 5 }>
+          Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
         </Text>
-        <Box mt={ 6 } alignItems="start" fontSize="xs" lineHeight={ 5 }>
-          { apiVersionUrl && (
-            <Text>
-              Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
-            </Text>
-          ) }
-          { frontendLink && (
-            <Text>
-              Frontend: { frontendLink }
-            </Text>
-          ) }
-          <Text>
-            Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
-          </Text>
-        </Box>
       </Box>
     );
   }, [ apiVersionUrl, backendVersionData?.backend_version, frontendLink, logoColor ]);

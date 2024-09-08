@@ -13,6 +13,7 @@ import useIssueUrl from 'lib/hooks/useIssueUrl';
 import { copy } from 'lib/html-entities';
 import IconSvg from 'ui/shared/IconSvg';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
+import SettingsColorTheme from '../topBar/settings/SettingsColorTheme';
 
 import FooterLinkItem from './FooterLinkItem';
 import IntTxsIndexingStatus from './IntTxsIndexingStatus';
@@ -20,8 +21,8 @@ import getApiVersionUrl from './utils/getApiVersionUrl';
 
 const MAX_LINKS_COLUMNS = 4;
 
-const FRONT_VERSION_URL = `https://github.com/blockscout/frontend/tree/${ config.UI.footer.frontendVersion }`;
-const FRONT_COMMIT_URL = `https://github.com/blockscout/frontend/commit/${ config.UI.footer.frontendCommit }`;
+const FRONT_VERSION_URL = `https://github.com/blockscout/frontend/tree/${config.UI.footer.frontendVersion}`;
+const FRONT_COMMIT_URL = `https://github.com/blockscout/frontend/commit/${config.UI.footer.frontendCommit}`;
 
 const Footer = () => {
 
@@ -81,11 +82,11 @@ const Footer = () => {
 
   const frontendLink = (() => {
     if (config.UI.footer.frontendVersion) {
-      return <Link href={ FRONT_VERSION_URL } target="_blank">{ config.UI.footer.frontendVersion }</Link>;
+      return <Link href={FRONT_VERSION_URL} target="_blank">{config.UI.footer.frontendVersion}</Link>;
     }
 
     if (config.UI.footer.frontendCommit) {
-      return <Link href={ FRONT_COMMIT_URL } target="_blank">{ config.UI.footer.frontendCommit }</Link>;
+      return <Link href={FRONT_COMMIT_URL} target="_blank">{config.UI.footer.frontendCommit}</Link>;
     }
 
     return null;
@@ -94,8 +95,8 @@ const Footer = () => {
   const fetch = useFetch();
 
   const { isPlaceholderData, data: linksData } = useQuery<unknown, ResourceError<unknown>, Array<CustomLinksGroup>>({
-    queryKey: [ 'footer-links' ],
-    queryFn: async() => fetch(config.UI.footer.links || '', undefined, { resource: 'footer-links' }),
+    queryKey: ['footer-links'],
+    queryFn: async () => fetch(config.UI.footer.links || '', undefined, { resource: 'footer-links' }),
     enabled: Boolean(config.UI.footer.links),
     staleTime: Infinity,
     placeholderData: [],
@@ -106,46 +107,50 @@ const Footer = () => {
   const renderNetworkInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Flex
-        gridArea={ gridArea }
+        gridArea={gridArea}
         flexWrap="wrap"
-        columnGap={ 8 }
-        rowGap={ 6 }
+        columnGap={8}
+        rowGap={6}
         mb={{ base: 5, lg: 10 }}
         _empty={{ display: 'none' }}
       >
 
-        { !config.UI.indexingAlert.intTxs.isHidden && <IntTxsIndexingStatus/> }
-        <NetworkAddToWallet/>
+        {!config.UI.indexingAlert.intTxs.isHidden && <IntTxsIndexingStatus />}
+
+        <NetworkAddToWallet walletCheck={config.UI.indexingAlert.intTxs.isHidden} />
+
+        <SettingsColorTheme themeToggleType = "switch" />
+
       </Flex>
     );
   }, []);
 
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
-      <Box gridArea={ gridArea }>
-        <Text mb={ 6 } fontSize="xs">
+      <Box gridArea={gridArea}>
+        <Text mb={6} fontSize="xs">
           <Link href="https://www.gfe.foundation" fontSize="sm">Green Fungible Energy</Link>
           - GFE is a trailblazing initiative designed to tokenize green energy.
           Providing a unique investment opportunity that bridges the gap between
           environmental impact and economic incentive, while bringing the first
           global perspective to electrical costs.
         </Text>
-        <Flex columnGap={ 2 } fontSize="xs" lineHeight={ 5 } alignItems="center" color="text">
+        <Flex columnGap={2} fontSize="xs" lineHeight={5} alignItems="center" color="text">
           <span>Made with</span>
-          <Link href="https://www.blockscout.com" isExternal display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
+          <Link href="https://www.blockscout.com" isExternal display="inline-flex" color={logoColor} _hover={{ color: logoColor }}>
             <IconSvg
               name="networks/logo-placeholder"
               width="80px"
-              height={ 4 }
+              height={4}
             />
           </Link>
         </Flex>
-        <Text fontSize="xs" lineHeight={ 5 }>
-          Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
+        <Text fontSize="xs" lineHeight={5}>
+          Copyright {copy} Blockscout Limited 2023-{(new Date()).getFullYear()}
         </Text>
       </Box>
     );
-  }, [ apiVersionUrl, backendVersionData?.backend_version, frontendLink, logoColor ]);
+  }, [apiVersionUrl, backendVersionData?.backend_version, frontendLink, logoColor]);
 
   const containerProps: GridProps = {
     as: 'footer',
@@ -159,18 +164,18 @@ const Footer = () => {
 
   if (config.UI.footer.links) {
     return (
-      <Grid { ...containerProps }>
+      <Grid {...containerProps}>
         <div>
-          { renderNetworkInfo() }
-          { renderProjectInfo() }
+          {renderNetworkInfo()}
+          {renderProjectInfo()}
         </div>
 
         <Grid
           gap={{ base: 6, lg: colNum === MAX_LINKS_COLUMNS + 1 ? 2 : 8, xl: 12 }}
           gridTemplateColumns={{
             base: 'repeat(auto-fill, 160px)',
-            lg: `repeat(${ colNum }, 135px)`,
-            xl: `repeat(${ colNum }, 160px)`,
+            lg: `repeat(${colNum}, 135px)`,
+            xl: `repeat(${colNum}, 160px)`,
           }}
           justifyContent={{ lg: 'flex-end' }}
           mt={{ base: 8, lg: 0 }}
@@ -182,10 +187,10 @@ const Footer = () => {
             ])
               .slice(0, colNum)
               .map(linkGroup => (
-                <Box key={ linkGroup.title }>
-                  <Skeleton fontWeight={ 500 } mb={ 3 } display="inline-block" isLoaded={ !isPlaceholderData }>{ linkGroup.title }</Skeleton>
-                  <VStack spacing={ 1 } alignItems="start">
-                    { linkGroup.links.map(link => <FooterLinkItem { ...link } key={ link.text } isLoading={ isPlaceholderData }/>) }
+                <Box key={linkGroup.title}>
+                  <Skeleton fontWeight={500} mb={3} display="inline-block" isLoaded={!isPlaceholderData}>{linkGroup.title}</Skeleton>
+                  <VStack spacing={1} alignItems="start">
+                    {linkGroup.links.map(link => <FooterLinkItem {...link} key={link.text} isLoading={isPlaceholderData} />)}
                   </VStack>
                 </Box>
               ))
@@ -197,7 +202,7 @@ const Footer = () => {
 
   return (
     <Grid
-      { ...containerProps }
+      {...containerProps}
       gridTemplateAreas={{
         lg: `
           "network links-top"
@@ -206,12 +211,12 @@ const Footer = () => {
       }}
     >
 
-      { renderNetworkInfo({ lg: 'network' }) }
-      { renderProjectInfo({ lg: 'info' }) }
+      {renderNetworkInfo({ lg: 'network' })}
+      {renderProjectInfo({ lg: 'info' })}
 
       <Grid
         gridArea={{ lg: 'links-bottom' }}
-        gap={ 1 }
+        gap={1}
         gridTemplateColumns={{
           base: 'repeat(auto-fill, 160px)',
           lg: 'repeat(3, 160px)',
@@ -227,7 +232,7 @@ const Footer = () => {
         justifyContent={{ lg: 'flex-end' }}
         mt={{ base: 8, lg: 0 }}
       >
-        { BLOCKSCOUT_LINKS.map(link => <FooterLinkItem { ...link } key={ link.text }/>) }
+        {BLOCKSCOUT_LINKS.map(link => <FooterLinkItem {...link} key={link.text} />)}
       </Grid>
     </Grid>
   );

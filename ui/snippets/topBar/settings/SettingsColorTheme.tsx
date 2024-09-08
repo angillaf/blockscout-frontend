@@ -15,7 +15,6 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
 
     const setTheme = React.useCallback((hex: string) => {
         const nextHexTheme = COLOR_THEMES.find((theme) => theme.hex === hex);
-        console.log("setTheme - nextHexTheme", nextHexTheme)
 
         if (!nextHexTheme) {
             return;
@@ -24,32 +23,25 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
         setColorMode(nextHexTheme.colorMode);
 
         const varName = nextHexTheme.colorMode === 'light' ? '--chakra-colors-white' : '--chakra-colors-black';
-        console.log("setTheme - varName", varName)
         window.document.documentElement.style.setProperty(varName, hex);
 
         cookies.set(cookies.NAMES.COLOR_MODE_HEX, hex);
         window.localStorage.setItem(cookies.NAMES.COLOR_MODE, nextHexTheme.colorMode);
-        console.log("setTheme - nextHexTheme.colorMode", nextHexTheme.colorMode)
     }, [setColorMode]);
 
     React.useEffect(() => {
         const cookieColorMode = cookies.get(cookies.NAMES.COLOR_MODE);
-        console.log("React.useEffect - cookies.NAMES.COLOR_MODE", cookies.NAMES.COLOR_MODE, "  - cookieColorMode", cookieColorMode)
 
         const nextColorMode = (() => {
             if (!cookieColorMode) {
                 return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
-            console.log("React.useEffect - nextColorMode : cookieColorMode", cookieColorMode)
             return cookieColorMode;
         })();
 
         const colorModeThemes = COLOR_THEMES.filter(theme => theme.colorMode === nextColorMode);
-        console.log("React.useEffect - colorModeThemes", colorModeThemes)
         const fallbackHex = colorModeThemes[colorModeThemes.length - 1].hex;
-        console.log("React.useEffect - fallbackHex", fallbackHex)
         const cookieHex = cookies.get(cookies.NAMES.COLOR_MODE_HEX) ?? fallbackHex;
-        console.log("React.useEffect - cookieHex", cookieHex)
         setTheme(cookieHex);
         setActiveHex(cookieHex);
     }, []);
@@ -58,17 +50,14 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
 
     const handleSelect = React.useCallback((event: React.MouseEvent<HTMLElement> | React.ChangeEvent<HTMLElement>) => {
         const reversedColor = activeTheme?.colorMode === 'light' ? 'dark' : 'light'
-        console.log("handleSelect - reversedColor", reversedColor)
         setColorMode(reversedColor);
         const colorTheme = COLOR_THEMES.find((theme) => theme.colorMode === reversedColor);
-        console.log("handleSelect - colorTheme", colorTheme)
 
         if (!colorTheme) {
             return;
         }
 
         const hex = colorTheme.hex;
-        console.log("handleSelect - hex", hex)
 
         setTheme(hex);
         setActiveHex(hex);

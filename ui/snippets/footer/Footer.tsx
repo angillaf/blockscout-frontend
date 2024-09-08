@@ -114,13 +114,9 @@ const Footer = () => {
         mb={{ base: 5, lg: 10 }}
         _empty={{ display: 'none' }}
       >
-
         {!config.UI.indexingAlert.intTxs.isHidden && <IntTxsIndexingStatus />}
-
         <NetworkAddToWallet walletCheck={config.UI.indexingAlert.intTxs.isHidden} />
-
         <SettingsColorTheme themeToggleType = "switch" />
-
       </Flex>
     );
   }, []);

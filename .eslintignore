@@ -6,5 +6,3 @@ deploy/tools/envs-validator/index.js
 deploy/tools/feature-reporter/build/**
 deploy/tools/feature-reporter/index.js
 public/**
-ui/snippets/footer/Footer.tsx
-ui/snippets/topBar/settings/SettingsColorTheme.tsx

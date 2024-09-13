@@ -79,7 +79,7 @@ const ChainIndicatorItem = ({ id, title, value, valueDiff, icon, isSelected, onC
       }}
     >
       { icon }
-      <Box display={{ base: 'none', lg: 'block' }}>
+      <Box display={{ base: 'none', lg: 'block' }} boxShadow='xl'>
         <span>{ title }</span>
         <Flex alignItems="center" color="text">
           { valueContent }

@@ -106,7 +106,7 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
                         h={"30px"}
                         bg={darkMode ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
                         borderRadius="full"
-                        boxShadow='dark-lg'
+                        boxShadow='xl'
                     >
                         <Icon
                             as={darkMode ? BsFillMoonFill : BsSunFill}

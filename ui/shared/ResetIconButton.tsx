@@ -8,8 +8,8 @@ type Props = {
 }
 
 const ResetIconButton = ({ onClick }: Props) => {
-  const resetTokenIconColor = useColorModeValue('blue.600', 'blue.300');
-  const resetTokenIconHoverColor = useColorModeValue('blue.400', 'blue.200');
+  const resetTokenIconColor = useColorModeValue('#4361ee', '#00bbf9');
+  const resetTokenIconHoverColor = useColorModeValue('#0090ed', '#00ddff');
 
   return (
     <Tooltip label="Reset filter">

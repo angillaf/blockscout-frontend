@@ -207,7 +207,7 @@ const MarketplaceAppModal = ({
                   w={ 9 }
                   h={ 8 }
                   onClick={ handleFavoriteClick }
-                  icon={ <FavoriteIcon isFavorite={ isFavorite } color={ useColorModeValue('blue.700', 'gray.400') }/> }
+                  icon={ <FavoriteIcon isFavorite={ isFavorite } color={ useColorModeValue('#3f37c9', 'gray.400') }/> }
                 />
               </Flex>
             </Flex>

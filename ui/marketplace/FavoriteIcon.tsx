@@ -9,7 +9,7 @@ type Props = {
 }
 
 const FavoriteIcon = ({ isFavorite, color }: Props) => {
-  const heartFilledColor = useColorModeValue('blue.700', 'gray.400');
+  const heartFilledColor = useColorModeValue('#3f37c9', 'gray.400');
   const defaultColor = isFavorite ? heartFilledColor : 'gray.400';
 
   return (

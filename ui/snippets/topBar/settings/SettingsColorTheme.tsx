@@ -90,7 +90,7 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
                         marginTop={"5px"}
                         backgroundColor={darkMode ? "#323238" : "#eeeef0"}
                         border="3px solid"
-                        borderColor="blue.300"
+                        borderColor="#00bbf9"
                         borderRadius="full"
                         paddingTop={0}
                         paddingBottom={0}
@@ -106,6 +106,7 @@ const SettingsColorTheme: React.FC<SettingsColorThemeProps> = ({themeToggleType}
                         h={"30px"}
                         bg={darkMode ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
                         borderRadius="full"
+                        boxShadow='dark-lg'
                     >
                         <Icon
                             as={darkMode ? BsFillMoonFill : BsSunFill}

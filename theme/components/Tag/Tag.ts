@@ -22,14 +22,14 @@ const variants = {
       bg: mode('gray.100', 'gray.800')(props),
       color: mode('gray.500', 'whiteAlpha.800')(props),
       _hover: {
-        color: 'blue.400',
+        color: '#0090ed',
         opacity: 0.76,
       },
       [`
         &[data-selected=true],
         &[data-selected=true][aria-selected=true]
       `]: {
-        bg: mode('blue.500', 'blue.900')(props),
+        bg: mode('#0060df', '#3a0ca3')(props),
         color: 'whiteAlpha.800',
       },
     },

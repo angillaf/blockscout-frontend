@@ -176,7 +176,7 @@ test('customization', async({ render }) => {
       truncation="constant"
       p={ 3 }
       borderWidth="1px"
-      borderColor="blue.700"
+      borderColor="#3f37c9"
     />,
   );
 

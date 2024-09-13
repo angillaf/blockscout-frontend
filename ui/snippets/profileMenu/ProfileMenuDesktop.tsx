@@ -60,7 +60,7 @@ const ProfileMenuDesktop = ({ isHomePage, className, fallbackIconSize, buttonBox
   let iconButtonStyles: Partial<IconButtonProps> = {};
   if (hasMenu) {
     iconButtonStyles = {
-      bg: isHomePage ? 'blue.50' : themedBackground,
+      bg: isHomePage ? '#aaf2ff' : themedBackground,
     };
   } else if (isHomePage) {
     iconButtonStyles = {

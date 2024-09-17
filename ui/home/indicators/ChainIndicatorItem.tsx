@@ -58,35 +58,37 @@ const ChainIndicatorItem = ({ id, title, value, valueDiff, icon, isSelected, onC
   })();
 
   return (
-    <Flex
-      alignItems="center"
-      columnGap={ 2 }
-      flexGrow={{ base: 0, lg: 1 }}
-      px={{ base: '6px', lg: 2 }}
-      py="6px"
-      as="li"
-      borderRadius="base"
-      cursor="pointer"
-      color={ isSelected ? activeColor : 'link' }
-      bgColor={ isSelected ? activeBgColor : undefined }
-      onClick={ handleClick }
-      fontSize="xs"
-      fontWeight={ 500 }
-      _hover={{
-        bgColor: activeBgColor,
-        color: isSelected ? activeColor : 'link_hovered',
-        zIndex: 1,
-      }}
-    >
-      { icon }
-      <Box display={{ base: 'none', lg: 'block' }} boxShadow='xl'>
-        <span>{ title }</span>
-        <Flex alignItems="center" color="text">
-          { valueContent }
-          { valueDiffContent }
-        </Flex>
-      </Box>
-    </Flex>
+    <Box boxShadow={isSelected ? 'xl' : 'none'} >
+      <Flex
+        alignItems="center"
+        columnGap={ 2 }
+        flexGrow={{ base: 0, lg: 1 }}
+        px={{ base: '8px', lg: '12px' }}
+        py={{ base: '6px', lg: '8px' }}
+        as="li"
+        borderRadius="base"
+        cursor="pointer"
+        color={ isSelected ? activeColor : 'link' }
+        bgColor={ isSelected ? activeBgColor : undefined }
+        onClick={ handleClick }
+        fontSize="xs"
+        fontWeight={ 500 }
+        _hover={{
+          bgColor: activeBgColor,
+          color: isSelected ? activeColor : 'link_hovered',
+          zIndex: 1,
+        }}
+      >
+        { icon }
+        <Box display={{ base: 'none', lg: 'block' }} >
+          <span>{ title }</span>
+          <Flex alignItems="center" color="text">
+            { valueContent }
+            { valueDiffContent }
+          </Flex>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 

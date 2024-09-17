@@ -41,8 +41,10 @@ const WalletMenuDesktop = ({ isHomePage, className, size = 'md' }: Props) => {
     const backgroundColor = isAutoConnectDisabled ? themedBackgroundOrange : themedBackground;
     const color = isAutoConnectDisabled ? themedColorForOrangeBg : themedColor;
     buttonStyles = {
-      bg: isHomePage ? 'blue.50' : backgroundColor,
-      color: isHomePage ? 'blackAlpha.800' : color,
+      // bg: isHomePage ? 'blue.50' : backgroundColor,
+      // color: isHomePage ? 'blackAlpha.800' : color,
+      bg: '#7209b7',
+      color: 'white', 
       _hover: {
         color: isHomePage ? 'blackAlpha.800' : color,
       },

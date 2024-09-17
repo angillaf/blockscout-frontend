@@ -60,7 +60,7 @@ const SwaggerUI = () => {
       padding: 0,
     },
     '.swagger-ui .prop-type': {
-      color: useColorModeValue('blue.600', 'blue.400'),
+      color: useColorModeValue('#4361ee', '#0090ed'),
     },
     '.swagger-ui .btn.try-out__btn': {
       borderColor: useToken('colors', 'link'),

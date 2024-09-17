@@ -17,7 +17,7 @@ interface Props {
 
 const AdditionalInfoButton = ({ isOpen, onClick, className, isLoading }: Props, ref: React.ForwardedRef<HTMLButtonElement>) => {
 
-  const infoBgColor = useColorModeValue('blue.50', 'gray.600');
+  const infoBgColor = useColorModeValue('#aaf2ff', 'gray.600');
 
   if (isLoading) {
     return <Skeleton boxSize={ 6 } borderRadius="sm" flexShrink={ 0 }/>;

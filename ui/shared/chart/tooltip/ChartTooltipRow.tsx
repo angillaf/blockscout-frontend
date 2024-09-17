@@ -12,7 +12,7 @@ type Props = {
 } & ({ label: string; children?: never } | { children: React.ReactNode; label?: never })
 
 const ChartTooltipRow = ({ label, lineNum, children }: Props) => {
-  const labelColor = useToken('colors', 'blue.100');
+  const labelColor = useToken('colors', '#80ebff');
   const textColor = useToken('colors', 'white');
 
   return (
